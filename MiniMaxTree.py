@@ -1,4 +1,5 @@
 from anytree import Node, RenderTree, findall,PreOrderIter
+from anytree.dotexport import RenderTreeGraph
 
 infinity=int(1e6)
 
@@ -31,7 +32,6 @@ class MiniMaxTree(object):
     def set_all_child(self, node):
         result_list = []
         if max(node.node_value) == 2:
-            #pass
             result_list.append([self.set_child_value(node.node_value, 2, 1), 1])
             
         else:
@@ -134,6 +134,7 @@ class MiniMaxTree(object):
 
 
 class MiniMaxTreeAlphaBeta(MiniMaxTree):
+
     def search(self, node, current_player, current_state):
 
         def max_value(node,player,state, alpha, beta):
